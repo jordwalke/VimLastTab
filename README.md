@@ -12,10 +12,17 @@
   it had to ensure that `Command+l` was unmapped from MacVim's default.
 
 - Otherwise, you can customize the keymapping as follows:
-   
 
-In your `.gvimrc`
+
+In your `.gvimrc` (and using MacVim)
+
+    if has('gui')
+      if has("gui_macvim")
+        macmenu &Tools.List\ Errors key=<nop>
+      endif
+    endif
 
 In your `.vimrc`
-  map <D-l> :SwitchToLastTab<CR>
-  imap <D-l> <Esc>:SwitchToLastTab<CR>
+
+    map <D-l> :SwitchToLastTab<CR>
+    imap <D-l> <Esc>:SwitchToLastTab<CR>
